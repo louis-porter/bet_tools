@@ -104,15 +104,16 @@ def predict_goal_line_from_xg(home_xg, away_xg, requested_lines=None, n_sims=500
     return pd.DataFrame(results).sort_values('line')
 
 # Example usage:
-home_elevenify = 1.51
-away_elevenify = 1.06
+home_elevenify = 1.43
+away_elevenify = 1.05
 
 home_afpl = 1.45
-away_afpl = 1.1
+away_afpl = 1.04
 
-home_xg = (0.65*home_elevenify) + (0.35*home_afpl)
-away_xg = (0.65*away_elevenify) + (0.35*away_afpl) 
+home_xg = (0.8*home_elevenify) + (0.2*home_afpl)
+away_xg = (0.8*away_elevenify) + (0.2*away_afpl) 
 
 # Get odds for Asian total 2.5, 3.0
-odds = predict_goal_line_from_xg( home_xg=0.90, away_xg=1.0, requested_lines=["2.0"])
+odds = predict_goal_line_from_xg( home_xg, away_xg, requested_lines=["2.0, 2.5"])
+
 print(odds)
